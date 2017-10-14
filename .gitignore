@@ -20,3 +20,32 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Eclipse Core
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+target/
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+#Maven
+.mvn
+.mvn/*
+mvnw
+mvnw.cmd
+
+#Spring
+.springBeans
+
+
