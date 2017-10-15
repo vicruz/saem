@@ -7,16 +7,16 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import com.marti.educacion.saem.dto.SignupForm;
-import com.marti.educacion.saem.entities.User;
-import com.marti.educacion.saem.repositories.UserRepository;
+import com.marti.educacion.saem.entities.Usuario;
+import com.marti.educacion.saem.repositories.UsuarioRepository;
 
 @Component
 public class SignupFormValidator extends LocalValidatorFactoryBean{
 	
-	private UserRepository userRepository;
+	private UsuarioRepository userRepository;
 	
 	@Resource
-	public void setUserRepository(UserRepository userRepository) {
+	public void setUserRepository(UsuarioRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 	
@@ -32,7 +32,7 @@ public class SignupFormValidator extends LocalValidatorFactoryBean{
 		
 		if(!errors.hasErrors()){
 			SignupForm signupForm = (SignupForm)obj;
-			User user = userRepository.findByUsuario(signupForm.getName());
+			Usuario user = userRepository.findByUsuario(signupForm.getName());
 			if(user!=null){
 				errors.reject("name","usuarioNoUnico");
 			}

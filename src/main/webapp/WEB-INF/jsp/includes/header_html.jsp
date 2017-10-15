@@ -29,7 +29,7 @@
 							class="icon-bar"></span>
 					</button>
 					<a id="logo" href="index.html" class="navbar-brand"><span
-						class="fa fa-rocket"></span><span class="logo-text">Gandhi</span><span
+						class="fa fa-rocket"></span><span class="logo-text">SAEM</span><span
 						style="display: none" class="logo-text-icon">µ</span></a>
 				</div>
 				<div class="topbar-main">

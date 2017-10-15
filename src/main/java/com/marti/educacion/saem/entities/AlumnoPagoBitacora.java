@@ -14,10 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="ALUMNO_PAGO_BITACORA")
+/*@Entity
+@Table(name="ALUMNO_PAGO_BITACORA")*/
 public class AlumnoPagoBitacora {
-	
+	/*
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_ALUMNO_PAGO_BITACORA")
@@ -76,5 +76,5 @@ public class AlumnoPagoBitacora {
 	public void setSaldo(Boolean saldo) {
 		this.saldo = saldo;
 	}
-    
+    */
 }

@@ -16,13 +16,13 @@ import com.marti.educacion.saem.json.AlumnoBecaJson;
 import com.marti.educacion.saem.json.JSon;
 import com.marti.educacion.saem.services.AlumnoBecaService;
 
-@RestController
-@RequestMapping(path="/beca")
+//@RestController
+//@RequestMapping(path="/beca")
 public class BecaRestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BecaRestController.class);
 	
-	@Autowired
+//	@Autowired
 	private AlumnoBecaService alumnoBecaService;
 	
 	public BecaRestController(AlumnoBecaService alumnoBecaService){
@@ -30,7 +30,7 @@ public class BecaRestController {
 	}
 	
 	
-	@RequestMapping(value="/alumno/{idAlumno}", method = RequestMethod.GET)
+	//@RequestMapping(value="/alumno/{idAlumno}", method = RequestMethod.GET)
 	public JSon getCatalogoPago(@PathVariable("idAlumno") Integer idAlumno){
 		
 		logger.info("Buscando la beca del alumno: " + idAlumno);
@@ -39,7 +39,7 @@ public class BecaRestController {
 		JSon value = new JSon();
 		
 		List<AlumnoBecaJson> lst = new ArrayList<AlumnoBecaJson>();
-		List<BecaForm> lstBecas = alumnoBecaService.findListAlumno(idAlumno);
+	/*	List<BecaForm> lstBecas = alumnoBecaService.findListAlumno(idAlumno);
 		
 		for(BecaForm form : lstBecas){
 			json = new AlumnoBecaJson();
@@ -52,7 +52,7 @@ public class BecaRestController {
 			
 			lst.add(json);
 		}
-		
+	*/	
 		value.setData(lst);
 		
 		return value;
@@ -63,7 +63,7 @@ public class BecaRestController {
 	 * @param idBeca
 	 * @return
 	 */
-	@RequestMapping(value="/delete/{idBeca}", method = RequestMethod.GET)
+	//@RequestMapping(value="/delete/{idBeca}", method = RequestMethod.GET)
 	public JSon deleteBeca(@PathVariable("idBeca") Integer idBeca){
 		
 		logger.info("Eliminando beca : " + idBeca);
@@ -72,7 +72,7 @@ public class BecaRestController {
 		List<Boolean> lst = new ArrayList<Boolean>();
 		lst.add(true);
 		
-		alumnoBecaService.deleteBeca(idBeca);
+//		alumnoBecaService.deleteBeca(idBeca);
 				
 		value.setData(lst);
 		

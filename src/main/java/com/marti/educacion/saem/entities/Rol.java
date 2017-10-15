@@ -13,26 +13,27 @@ public class Rol {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID")
-	private Integer id;
+	@Column(name="ROL_ID")
+	private Integer rolId;
 	
-	@Column(name="NAME")
-	private String name;
+	@Column(name="ROL_NOMBRE")
+	private String rolNombre;
 
-	public Integer getId() {
-		return id;
+	public Integer getRolId() {
+		return rolId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setRolId(Integer rolId) {
+		this.rolId = rolId;
 	}
 
-	public String getName() {
-		return name;
+	public String getRolNombre() {
+		return rolNombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setRolNombre(String rolNombre) {
+		this.rolNombre = rolNombre;
 	}
+
 	
 }

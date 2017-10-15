@@ -7,10 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="GRADO")
+/*@Entity
+@Table(name="GRADO")*/
 public class Grado {
-	
+/*	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -34,5 +34,5 @@ public class Grado {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+*/
 }

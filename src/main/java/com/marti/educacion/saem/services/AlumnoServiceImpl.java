@@ -17,10 +17,10 @@ import com.marti.educacion.saem.repositories.AlumnoRepository;
 import com.marti.educacion.saem.util.Constantes;
 
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class AlumnoServiceImpl implements AlumnoService {
-	
+/*	
 	private AlumnoRepository alumnoRepository;
 	
 	@Autowired
@@ -74,7 +74,7 @@ public class AlumnoServiceImpl implements AlumnoService {
 	/**
 	 * Obtiene una lista de alumnos. Esta lista se muestra en la lista de alumnos
 	 */
-	@Override
+/*	@Override
 	public JSon getList() {
 		JSon value = new JSon();
 		//logger.debug("Alumnos GET request");
@@ -157,7 +157,6 @@ public class AlumnoServiceImpl implements AlumnoService {
 		}
 		
 		value.setData(lstJson);
-		
 		return value;
 		
 	}
@@ -179,28 +178,28 @@ public class AlumnoServiceImpl implements AlumnoService {
 	/**
 	 * Pone el estatus de los alumnos en INACTIVO
 	 */
-	@Override
+/*	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public void deactivateAllAlumnos() {
-		alumnoRepository.updateActivo(Constantes.ESTATUS_INACTIVO);
+//		alumnoRepository.updateActivo(Constantes.ESTATUS_INACTIVO);
 	}
 	
 	/**
 	 * Pone el estatus de los alumnos en ACTIVO
 	 */
-	@Override
+/*	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public void activateAllAlumnos() {
-		alumnoRepository.updateActivo(Constantes.ESTATUS_ACTIVO);
+//		alumnoRepository.updateActivo(Constantes.ESTATUS_ACTIVO);
 	}
 	
 	/**
 	 * Establece el estatus de un alumno en particular por el indicado
 	 */
-	@Override
+/*	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public void changeEstatusByAlumno(int activo, int alumnoId) {
-		alumnoRepository.changeActivoByAlumno(activo, alumnoId);;
+//		alumnoRepository.changeActivoByAlumno(activo, alumnoId);
 	}
 
 	@Override
@@ -209,5 +208,5 @@ public class AlumnoServiceImpl implements AlumnoService {
 		grado.setId(idGrado);
 		return alumnoRepository.findByGradoAndActivo(grado,Constantes.ESTATUS_ACTIVO);
 	}
-
+*/
 }

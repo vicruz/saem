@@ -27,10 +27,10 @@ import com.marti.educacion.saem.repositories.PagoGradoRepository;
 import com.marti.educacion.saem.util.Constantes;
 import com.marti.educacion.saem.util.MyUtil;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class AlumnoPagoServiceImpl implements AlumnoPagoService {
-	
+	/*
 	private AlumnoPagoRepository alumnoPagoRepository;
 	private PagoGradoRepository pagoGradoRepository;
 	private AlumnoRepository alumnoRepository;
@@ -51,7 +51,8 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=true)
 	public List<AlumnoPago> findAll() {
-		return alumnoPagoRepository.findAll();
+//		return alumnoPagoRepository.findAll();
+		return null;
 	}
 
 	@Override
@@ -115,7 +116,7 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 			
 			alumnoPagoRepository.save(alumnoPago);
 		}
-		
+
 	}
 
 	@Override
@@ -294,10 +295,12 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 		
 		return alumnoPagoForm;
 
+		return null;
 	}
 
 	@Override
 	public List<AlumnoPagoForm> findByIdAlumno(Integer id) {
+		return null;
 
 		List<AlumnoPagoForm> alumnosPagoForm = new ArrayList<AlumnoPagoForm>();
 		List<AlumnoPago> alumnosPago;
@@ -423,7 +426,6 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 			alumnoRepository.save(alumno);
 		}
 		
-		
 	}
 
 	@Override
@@ -443,6 +445,8 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 		alumnoPagoForm.setSemaforo("<span class=\"label label-sm label-info\">Pendiente</span>");
 		
 		return alumnoPagoForm;
+
+		return null;
 	}
 
 	@Override
@@ -473,16 +477,41 @@ public class AlumnoPagoServiceImpl implements AlumnoPagoService {
 		}
 		
 		return lstAlumnoPagoForm;
+		return null;
 	}
 
 	//TODO Realizar control
 	@Override
 	public void deleteByPagoGradoId(Integer idPagoGrado) {
-		alumnoPagoRepository.deleteInBulkByPagoGradoId(idPagoGrado);
+		//alumnoPagoRepository.deleteInBulkByPagoGradoId(idPagoGrado);
+	}
+
+	@Override
+	public void delete(AlumnoPagoForm alumnoForm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getList() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateMontoFechaExceed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStatusByPago(Integer idAlumno) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
-	
+*/	
 
 
 }

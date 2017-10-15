@@ -14,17 +14,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="PAGO_GRADO")
+/*@Entity
+@Table(name="PAGO_GRADO")*/
 public class PagoGrado {
-
+/*
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private Integer id;
 	
-	/*@Column(name="ID_PAGO")
-	private Integer idPago;*/
 	@JoinColumn(name="ID_PAGO", referencedColumnName="ID")
 	@OneToOne(fetch=FetchType.EAGER)
 	private CatPagos catPago;
@@ -54,13 +52,6 @@ public class PagoGrado {
 		this.id = id;
 	}
 
-	/*public Integer getIdPago() {
-		return idPago;
-	}
-
-	public void setIdPago(Integer idPago) {
-		this.idPago = idPago;
-	}*/
 	public CatPagos getCatPago() {
 		return catPago;
 	}
@@ -108,5 +99,5 @@ public class PagoGrado {
 	public void setFechaCorresponde(Date fechaCorresponde) {
 		this.fechaCorresponde = fechaCorresponde;
 	}
-    
+*/    
 }

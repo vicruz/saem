@@ -11,10 +11,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="ALUMNO_BECA")
+/*@Entity
+@Table(name="ALUMNO_BECA")*/
 public class AlumnoBeca {
-	
+/*	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_BECA")
@@ -64,5 +64,5 @@ public class AlumnoBeca {
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-
+*/
 }

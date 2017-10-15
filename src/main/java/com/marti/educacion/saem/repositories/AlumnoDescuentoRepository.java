@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.marti.educacion.saem.entities.AlumnoDescuento;
 
-public interface AlumnoDescuentoRepository extends JpaRepository<AlumnoDescuento,Integer>{
+public interface AlumnoDescuentoRepository {//extends JpaRepository<AlumnoDescuento,Integer>{
 
-	List<AlumnoDescuento> findByIdAlumno(Integer IdAlumno);
+	//List<AlumnoDescuento> findByIdAlumno(Integer IdAlumno);
 }

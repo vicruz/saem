@@ -16,8 +16,8 @@ import com.marti.educacion.saem.json.AlumnoDescuentoJson;
 import com.marti.educacion.saem.json.JSon;
 import com.marti.educacion.saem.services.AlumnoDescuentoService;
 
-@RestController
-@RequestMapping(path="/descuento")
+//@RestController
+//@RequestMapping(path="/descuento")
 public class DescuentoRestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(DescuentoRestController.class);
@@ -25,13 +25,13 @@ public class DescuentoRestController {
 	
 	private AlumnoDescuentoService alumnoDescuentoService;
 	
-	@Autowired
+//	@Autowired
 	public DescuentoRestController(AlumnoDescuentoService alumnoDescuentoService){
 		this.alumnoDescuentoService = alumnoDescuentoService;
 	}
 	
 	
-	@RequestMapping(value="/alumno/{idAlumno}", method = RequestMethod.GET)
+	//@RequestMapping(value="/alumno/{idAlumno}", method = RequestMethod.GET)
 	public JSon getCatalogoDescuento(@PathVariable("idAlumno") Integer idAlumno){
 		
 		logger.debug("Buscando descuentos del alumno: " + idAlumno);
@@ -40,7 +40,7 @@ public class DescuentoRestController {
 		JSon value = new JSon();
 		
 		List<AlumnoDescuentoJson> lst = new ArrayList<AlumnoDescuentoJson>();
-		List<DescuentoForm> lstDescuentos = alumnoDescuentoService.findListAlumno(idAlumno);
+		/*List<DescuentoForm> lstDescuentos = alumnoDescuentoService.findListAlumno(idAlumno);
 		
 		for(DescuentoForm form : lstDescuentos){
 			json = new AlumnoDescuentoJson();
@@ -53,13 +53,13 @@ public class DescuentoRestController {
 			
 			lst.add(json);
 		}
-		
+		*/
 		value.setData(lst);
 		
 		return value;
 	}
 	
-	@RequestMapping(value="/delete/{idDescuento}", method = RequestMethod.GET)
+	//@RequestMapping(value="/delete/{idDescuento}", method = RequestMethod.GET)
 	public JSon deleteBeca(@PathVariable("idDescuento") Integer idDescuento){
 		
 		logger.debug("Eliminando descuento: " + idDescuento);
@@ -68,7 +68,7 @@ public class DescuentoRestController {
 		List<Boolean> lst = new ArrayList<Boolean>();
 		lst.add(true);
 		
-		alumnoDescuentoService.deleteDescuentoById(idDescuento);
+		//alumnoDescuentoService.deleteDescuentoById(idDescuento);
 				
 		value.setData(lst);
 		

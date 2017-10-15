@@ -59,7 +59,7 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 
-@RestController
+//@RestController
 public class ReportesRestController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReportesRestController.class);
@@ -69,7 +69,7 @@ public class ReportesRestController {
 	private AlumnoPagoRepository alumnoPagoRepository;
 	private AlumnoPagoBitacoraService alumnoPagoBitacoraService;
 	
-	@Autowired
+//	@Autowired
 	public ReportesRestController(AlumnoPagoBitacoraRepository alumnoPagoBitacoraRepository,
 			AlumnoRepository alumnoRepository, AlumnoPagoRepository alumnoPagoRepository,
 			AlumnoPagoBitacoraService alumnoPagoBitacoraService){
@@ -84,8 +84,8 @@ public class ReportesRestController {
 	 * @param idGrado Grado del alumno
 	 * @return JSON con mapa de id - conepto
 	 */
-	@RequestMapping(value="/reporte/alumno/pagos/{idAlumno}/{start}/{end}", method = RequestMethod.GET,
-			produces="application/pdf")
+	//@RequestMapping(value="/reporte/alumno/pagos/{idAlumno}/{start}/{end}", method = RequestMethod.GET,
+			//produces="application/pdf")
 	public ResponseEntity<InputStreamResource> reportAlumno(@PathVariable("idAlumno") Integer idAlumno, 
 			@PathVariable("start") String start, @PathVariable("end") String end){
 		
@@ -125,17 +125,17 @@ public class ReportesRestController {
 			
 			alumno = alumnoRepository.findOne(idAlumno);
 			
-			alumnoNombre = alumno.getNombre() + " " + alumno.getApPaterno() + " " + alumno.getApMaterno();
-			grado = alumno.getGrado().getName();
+//			alumnoNombre = alumno.getNombre() + " " + alumno.getApPaterno() + " " + alumno.getApMaterno();
+//			grado = alumno.getGrado().getName();
 			periodo = sdf2.format(calInit.getTime()) + " - " + sdf2.format(calFin.getTime()); 
 			
-			mapParams.put("alumno", alumnoNombre);
-			mapParams.put("grado", grado);
+//			mapParams.put("alumno", alumnoNombre);
+//			mapParams.put("grado", grado);
 			mapParams.put("periodo", periodo);
 			
-			lstAlumnoPago = alumnoPagoRepository.findByIdAlumnoAndBetweenMonthPays(alumno.getId(),calInit.getTime(), calFin.getTime());
+//			lstAlumnoPago = alumnoPagoRepository.findByIdAlumnoAndBetweenMonthPays(alumno.getId(),calInit.getTime(), calFin.getTime());
 
-			if(lstAlumnoPago.size() > 0){
+/*			if(lstAlumnoPago.size() > 0){
 				//Construyendo el reporte
 				for(AlumnoPago alumnoPago : lstAlumnoPago){
 					
@@ -229,27 +229,28 @@ public class ReportesRestController {
 			return ResponseEntity.ok().headers(headers).contentLength(reporteByte.length)
 					.contentType(MediaType.parseMediaType("application/octet-stream"))
 					.body(new InputStreamResource(is));
-			
+			*/
 			/*return Response.status(Response.Status.OK).entity(is)
 					.header("Cache-Control","private, max-age=1")
 					.header("Content-Length", reporteByte.length+"")
 					.header("Expires", "0")
 					.header("Content-Disposition", "attachment;filename="+alumnoNombre+".pdf").build();
 			*/
+			return null;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (JRException e) {
+		}// catch (JRException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+		//}
 		
 		return null;
 		
 	}
 	
-	@RequestMapping(value="/reporte/test", method = RequestMethod.GET,
-			produces="application/pdf")
+	//@RequestMapping(value="/reporte/test", method = RequestMethod.GET,
+//			produces="application/pdf")
 	public ResponseEntity<InputStreamResource> reportTest(){
 		
 		byte[] reporteByte;
@@ -312,8 +313,8 @@ public class ReportesRestController {
 	 * @param end fecha final
 	 * @return reporte excel
 	 */
-	@RequestMapping(value="/reporte/pagos/fechas/{start}/{end}", method = RequestMethod.GET,
-			produces="application/xls")
+	//@RequestMapping(value="/reporte/pagos/fechas/{start}/{end}", method = RequestMethod.GET,
+//			produces="application/xls")
 	public ResponseEntity<InputStreamResource> reportPagos( 
 			@PathVariable("start") String start, @PathVariable("end") String end){
 		
@@ -348,13 +349,13 @@ public class ReportesRestController {
 			calFin.set(Calendar.MINUTE, 59);
 			calFin.set(Calendar.SECOND, 59);
 			
-			lst = alumnoPagoBitacoraService.getPagosBetweenFechaPago(calInit.getTime(), calFin.getTime());
+			lst = null;// alumnoPagoBitacoraService.getPagosBetweenFechaPago(calInit.getTime(), calFin.getTime());
 			setConceptos = new HashSet<String>();
 			
 			//Obtener los conceptos de los pagos
-			for (AlumnoReportDailyVO alumnoReportVO : lst) {
-				setConceptos.add(alumnoReportVO.getConcepto());
-			}
+//			for (AlumnoReportDailyVO alumnoReportVO : lst) {
+//				setConceptos.add(alumnoReportVO.getConcepto());
+//			}
 			
 			//Crear el excel
 			sheet = workbook.createSheet("Pagos");
@@ -395,7 +396,7 @@ public class ReportesRestController {
 				cell.setCellStyle(cellBorderBold(workbook));
 				
 				total = 0;
-				for (AlumnoReportDailyVO alumnoReportVO : lst) {
+				/*for (AlumnoReportDailyVO alumnoReportVO : lst) {
 					if(concepto.equals(alumnoReportVO.getConcepto())){
 						row = sheet.createRow(fila++);
 						columna = 0;
@@ -420,7 +421,7 @@ public class ReportesRestController {
 							total += alumnoReportVO.getPago();
 						}
 					}
-				}
+				}*/
 				//El total se pone en una columna fuera de la tabla para poder hacer operaciones
 				//TOTAL
 				columna = 4;

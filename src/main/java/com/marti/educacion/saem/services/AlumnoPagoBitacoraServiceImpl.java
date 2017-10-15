@@ -16,10 +16,10 @@ import com.marti.educacion.saem.repositories.AlumnoPagoBitacoraRepository;
 import com.marti.educacion.saem.repositories.AlumnoRepository;
 import com.marti.educacion.saem.util.MyUtil;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class AlumnoPagoBitacoraServiceImpl implements AlumnoPagoBitacoraService {
-
+/*
 	private AlumnoPagoBitacoraRepository alumnoPagoBitacoraRepository; 
 	private AlumnoRepository alumnoRepository; 
 	
@@ -53,8 +53,7 @@ public class AlumnoPagoBitacoraServiceImpl implements AlumnoPagoBitacoraService 
 
 			lst.add(vo);
 		}
-		
 		return lst;
 	}
-
+*/
 }

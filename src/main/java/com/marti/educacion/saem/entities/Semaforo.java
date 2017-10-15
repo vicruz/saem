@@ -7,10 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="SEMAFORO")
+/*@Entity
+@Table(name="SEMAFORO")*/
 public class Semaforo {
-
+/*
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -34,5 +34,5 @@ public class Semaforo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	*/
 }

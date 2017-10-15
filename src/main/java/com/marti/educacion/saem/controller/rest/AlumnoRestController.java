@@ -12,9 +12,9 @@ import com.marti.educacion.saem.json.JSon;
 import com.marti.educacion.saem.services.AlumnoService;
 import com.marti.educacion.saem.util.Constantes;
 
-@RestController
+//@RestController
 public class AlumnoRestController {
-	
+/*	
 	private static final Logger logger = LoggerFactory.getLogger(AlumnoRestController.class);
 	
 	//private AlumnoRepository alumnoRepository;
@@ -35,7 +35,7 @@ public class AlumnoRestController {
 	/**
 	 * Da de baja a todos los alumnos registrados
 	 */
-	@RequestMapping(value="/alumnoRest/baja", method = RequestMethod.POST)
+/*	@RequestMapping(value="/alumnoRest/baja", method = RequestMethod.POST)
 	public void deactivateAllAlumnos(){
 		logger.debug("Desactivar a todos los alumnos");
 		alumnoService.deactivateAllAlumnos();
@@ -44,7 +44,7 @@ public class AlumnoRestController {
 	/**
 	 * Da de alta a todos los alumnos registrados
 	 */
-	@RequestMapping(value="/alumnoRest/alta", method = RequestMethod.POST)
+/*	@RequestMapping(value="/alumnoRest/alta", method = RequestMethod.POST)
 	public void activateAllAlumnos(){
 		logger.debug("Activar a todos los alumnos");
 		alumnoService.activateAllAlumnos();
@@ -53,7 +53,7 @@ public class AlumnoRestController {
 	/**
 	 * Cambia el estatus del alumno a 'baja'
 	 */
-	@RequestMapping(value="/alumnoRest/bajaById/{idAlumno}", method = RequestMethod.GET)
+/*	@RequestMapping(value="/alumnoRest/bajaById/{idAlumno}", method = RequestMethod.GET)
 	public void bajaByAlumno(@PathVariable("idAlumno") Integer alumnoId){
 		logger.debug("Baja del alumno: " + alumnoId);
 		alumnoService.changeEstatusByAlumno(Constantes.ESTATUS_INACTIVO, alumnoId);
@@ -62,10 +62,10 @@ public class AlumnoRestController {
 	/**
 	 * Cambia el estatus del alumno a 'alta'
 	 */
-	@RequestMapping(value="/alumnoRest/altaById/{idAlumno}", method = RequestMethod.GET)
+/*	@RequestMapping(value="/alumnoRest/altaById/{idAlumno}", method = RequestMethod.GET)
 	public void altaByAlumno(@PathVariable("idAlumno") Integer alumnoId){
 		logger.debug("Alta del alumno: " + alumnoId);
 		alumnoService.changeEstatusByAlumno(Constantes.ESTATUS_ACTIVO, alumnoId);
 	}
-
+*/
 }

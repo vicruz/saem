@@ -14,7 +14,7 @@ import com.marti.educacion.saem.json.GradoJson;
 import com.marti.educacion.saem.json.JSon;
 import com.marti.educacion.saem.services.GradoService;
 
-@RestController
+//@RestController
 public class GradoRestController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(GradoRestController.class);
@@ -25,25 +25,25 @@ public class GradoRestController {
 		this.gradoService = gradoService;
 	}
 
-	@RequestMapping(value="/gradoRest", method = RequestMethod.POST)
+	//@RequestMapping(value="/gradoRest", method = RequestMethod.POST)
 	public JSon gradosRest() {
 		JSon value = new JSon();
 		logger.info("GradoRest - POST");
 
 		List<GradoJson> lstJson = new ArrayList<GradoJson>();
 		
-		List<Grado> lstGrado = gradoService.findAll();
+/*		List<Grado> lstGrado = gradoService.findAll();
 		
 		if(lstGrado!=null){
 			for(Grado grado : lstGrado){
 				GradoJson json = new GradoJson();
-				json.setIdGrado(grado.getId());
-				json.setGrado(grado.getName());
-				json.setUrlEditar("/grados/"+grado.getId()+"/editar");
+//				json.setIdGrado(grado.getId());
+//				json.setGrado(grado.getName());
+//				json.setUrlEditar("/grados/"+grado.getId()+"/editar");
 				lstJson.add(json);
 			}
 		}
-		
+	*/	
 		value.setData(lstJson);
 		//value.setDraw(3);
 		//value.setRecordsTotal(lstJson.size());

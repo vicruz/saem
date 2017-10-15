@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.marti.educacion.saem.dto.UserForm;
-import com.marti.educacion.saem.entities.User;
+import com.marti.educacion.saem.entities.Usuario;
 import com.marti.educacion.saem.services.AlumnoService;
 import com.marti.educacion.saem.services.UserService;
 import com.marti.educacion.saem.util.MyUtil;
@@ -29,10 +29,14 @@ public class UserController {
 	private UserService userService;
 
 	@Autowired
-	public UserController(UserService userService,AlumnoService alumnoService) {
+	/*public UserController(UserService userService,AlumnoService alumnoService) {
+		this.userService = userService;
+	}*/
+	public UserController(UserService userService) {
 		this.userService = userService;
 
 	}
+	
 	@RequestMapping(value="/usuario" ,method=RequestMethod.GET)
 	public String usuario(Model model){
 		model.addAttribute(new  UserForm());
@@ -66,7 +70,7 @@ public class UserController {
 	public String borrarUsuario(@PathVariable("usuarioId") Integer usuarioId, Model model
 			,RedirectAttributes redirectAttributes){
 		try {
-			User usuarioBusqueda=userService.findUserById(usuarioId);
+			Usuario usuarioBusqueda=userService.findUserById(usuarioId);
 			if(usuarioBusqueda!=null){
 				userService.deleteUserById(usuarioId);
 				MyUtil.flash(redirectAttributes, "success", "signupSuccess");

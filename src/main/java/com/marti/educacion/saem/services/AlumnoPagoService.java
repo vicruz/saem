@@ -8,7 +8,7 @@ import com.marti.educacion.saem.entities.AlumnoPago;
 
 public interface AlumnoPagoService {
 
-	public List<AlumnoPago> findAll();
+/*	public List<AlumnoPago> findAll();
 	
 	public void save(AlumnoPagoForm alumnoForm) throws Exception;
 	
@@ -30,5 +30,5 @@ public interface AlumnoPagoService {
 	public List<AlumnoPagoForm> findByIdPagoGradoAndFechaLimite(Integer idPagoGrado, Date fechaLimite);
 	
 	public void deleteByPagoGradoId(Integer idPagoGrado);
-	
+	*/
 }

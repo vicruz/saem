@@ -22,7 +22,7 @@ import com.marti.educacion.saem.services.CatPagosService;
 import com.marti.educacion.saem.services.GradoService;
 import com.marti.educacion.saem.services.PagoGradoService;
 
-@RestController
+//@RestController
 public class PagoGradoRestController {
 
 	private PagoGradoService pagoGradoService;
@@ -32,7 +32,7 @@ public class PagoGradoRestController {
 	private static final Logger logger = LoggerFactory.getLogger(PagoGradoRestController.class);
 
 
-	@Autowired
+//	@Autowired
 	public PagoGradoRestController(PagoGradoService pagoGradoService, CatPagosService catPagosService,
 			GradoService gradoService){
 		this.pagoGradoService = pagoGradoService;
@@ -40,40 +40,40 @@ public class PagoGradoRestController {
 		this.gradoService= gradoService;
 	}
 	
-	@RequestMapping(value="/pagoGradoRest",method = RequestMethod.POST)
+	////@RequestMapping(value="/pagoGradoRest",method = RequestMethod.POST)
 	public JSon adminRest(){
 		System.out.println("pagoRest");
 		JSon value = new JSon();
     
 		List<PagoGradoTableJson> lstJson = new ArrayList<PagoGradoTableJson>();
-		List<PagoGrado> pagoGradolst = pagoGradoService.findAll();
-		List<CatPagos> catpagolst = catPagosService.findAll();
-		List<Grado> gradoLst= gradoService.findAll();
+//		List<PagoGrado> pagoGradolst = pagoGradoService.findAll();
+//		List<CatPagos> catpagolst = catPagosService.findAll();
+//		List<Grado> gradoLst= gradoService.findAll();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	
-		for(PagoGrado pd:pagoGradolst ){
-			String fechaLimite =formatter.format(pd.getFechaLimite());
-			PagoGradoTableJson pgJson= new PagoGradoTableJson();
+//		for(PagoGrado pd:pagoGradolst ){
+//			String fechaLimite =formatter.format(pd.getFechaLimite());
+//			PagoGradoTableJson pgJson= new PagoGradoTableJson();
 			
-			pgJson.setIdPagoGrado(pd.getId());
-			for(Grado gd:gradoLst){
-				if(pd.getIdGrado()==gd.getId()){
-					pgJson.setGrado(gd.getName());
-				}
-			}
-			for(CatPagos catpg :catpagolst){
-				if(pd.getCatPago().getId()==catpg.getId()){
-					pgJson.setConcepto(catpg.getConcepto());
-					pgJson.setMonto(catpg.getMonto());
-				}
-			}
-			pgJson.setMes(checkMes(pd.getMes_corresponde()));
-			pgJson.setAnio(pd.getAnio_corresponde());
-			pgJson.setFechaLimite(fechaLimite);
-			lstJson.add(pgJson);
-		}
+//			pgJson.setIdPagoGrado(pd.getId());
+//			for(Grado gd:gradoLst){
+//				if(pd.getIdGrado()==gd.getId()){
+//					pgJson.setGrado(gd.getName());
+//				}
+//			}
+//			for(CatPagos catpg :catpagolst){			
+//				if(pd.getCatPago().getId()==catpg.getId()){
+//					pgJson.setConcepto(catpg.getConcepto());
+//					pgJson.setMonto(catpg.getMonto());
+//				}
+//			}
+//			pgJson.setMes(checkMes(pd.getMes_corresponde()));
+//			pgJson.setAnio(pd.getAnio_corresponde());
+//			pgJson.setFechaLimite(fechaLimite);
+//			lstJson.add(pgJson);
+//		}
 	
-		value.setData(lstJson);
+//		value.setData(lstJson);
 		return value;
 	}
 

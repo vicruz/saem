@@ -12,14 +12,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="CAT_PAGOS")
+/*@Entity
+@Table(name="CAT_PAGOS")*/
 public class CatPagos implements Serializable{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+/*	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -100,6 +97,6 @@ public class CatPagos implements Serializable{
 	public void setPagoUnico(int pagoUnico) {
 		this.pagoUnico = pagoUnico;
 	}
-    
+    */
 
 }

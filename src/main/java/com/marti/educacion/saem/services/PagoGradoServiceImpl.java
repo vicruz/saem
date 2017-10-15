@@ -18,10 +18,10 @@ import com.marti.educacion.saem.entities.CatPagos;
 import com.marti.educacion.saem.entities.PagoGrado;
 import com.marti.educacion.saem.repositories.PagoGradoRepository;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class PagoGradoServiceImpl implements PagoGradoService {
-	
+	/*
 	private PagoGradoRepository pagoGradoRepository;
 	
 	
@@ -32,17 +32,20 @@ public class PagoGradoServiceImpl implements PagoGradoService {
 
 	@Override
 	public PagoGrado findOne(Integer idPagoGrado) {
-		return pagoGradoRepository.findOne(idPagoGrado);
+		//return pagoGradoRepository.findOne(idPagoGrado);
+		return null;
 	}
 
 	@Override
 	public List<PagoGrado> getByIdGrado(Integer idGrado) {
-		return  pagoGradoRepository.findByIdGrado(idGrado);
+		//return  pagoGradoRepository.findByIdGrado(idGrado);
+		return null;
 	}
 
 	@Override
 	public List<PagoGrado> findAll() {
-		return pagoGradoRepository.findAll();
+		//return pagoGradoRepository.findAll();
+		return null;
 	}
 
 	@Override
@@ -88,31 +91,29 @@ public class PagoGradoServiceImpl implements PagoGradoService {
 	@Override
 	@Transactional(propagation=Propagation.SUPPORTS, readOnly=false)
 	public void save(PagoGrado pagoGrado) {
-		pagoGradoRepository.save(pagoGrado);
+		//pagoGradoRepository.save(pagoGrado);
 	}
 
 	@Override
 	public void flush(){
-		pagoGradoRepository.flush();
+		//pagoGradoRepository.flush();
 	}
 
 	@Override
 	public int findPagoMade(int idPagoGrado) {
 		int pagosMade = 0;
-		
 		try{
 			pagosMade = pagoGradoRepository.countPagosMade(idPagoGrado);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 		return pagosMade;
 	}
 
 	@Override
 	public void delete(Integer idPagoGrado) {
-		pagoGradoRepository.delete(idPagoGrado);
+		//pagoGradoRepository.delete(idPagoGrado);
 	}
-
+*/
 
 }

@@ -12,7 +12,7 @@
 <html lang="es">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>.: Gandhi :.</title>
+	<title>.: SAEM :.</title>
 	
 	<!-- Css 
 	<link href="${conPath}/public/css/styles.css" rel="stylesheet"> -->

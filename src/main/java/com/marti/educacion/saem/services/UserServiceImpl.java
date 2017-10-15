@@ -12,18 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.marti.educacion.saem.dto.SignupForm;
 import com.marti.educacion.saem.dto.UserDetailsImpl;
 import com.marti.educacion.saem.dto.UserForm;
-import com.marti.educacion.saem.entities.User;
-import com.marti.educacion.saem.repositories.UserRepository;
+import com.marti.educacion.saem.entities.Usuario;
+import com.marti.educacion.saem.repositories.UsuarioRepository;
 
 @Service
 @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class UserServiceImpl implements UserService, UserDetailsService{
 
-	private UserRepository userRepository;
+	private UsuarioRepository userRepository;
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder){
+	private UserServiceImpl(UsuarioRepository userRepository, PasswordEncoder passwordEncoder){
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 	}
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public void signup(SignupForm signupForm) {
-		User user = new User();
+		Usuario user = new Usuario();
 		user.setEmail(signupForm.getEmail());
 		user.setUsuario(signupForm.getName());
 		user.setPassword(passwordEncoder.encode(signupForm.getPassword()));
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsuario(username);
+		Usuario user = userRepository.findByUsuario(username);
 		if(user == null)
 			throw new UsernameNotFoundException(username);
 		
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 	}
 
 	@Override
-	public User findUserById(int usuarioId) {
+	public Usuario findUserById(int usuarioId) {
 		// TODO Auto-generated method stub
 		return userRepository.findUserById(usuarioId);
 	}
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService, UserDetailsService{
 
 	@Override
 	public void newUser(UserForm userForm) {
-		User user = new User();
+		Usuario user = new Usuario();
 		user.setEmail(userForm.getEmail());
 		user.setUsuario(userForm.getName());
 		user.setPassword(passwordEncoder.encode(userForm.getPassword()));

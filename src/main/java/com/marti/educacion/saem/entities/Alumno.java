@@ -5,12 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +16,8 @@ public class Alumno {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID")
-    private int id;
+	@Column(name="ALUMNO_ID")
+    private int alumnoId;
     
 	@Column(name="AP_PATERNO")
     private String apPaterno;
@@ -28,37 +25,39 @@ public class Alumno {
 	@Column(name="AP_MATERNO")
     private String apMaterno;
     
-	@Column(name="NOMBRE")
-    private String nombre;
+	@Column(name="ALUMNO_NOMBRE")
+    private String alumnoNombre;
 	
 	@Column(name="FECHA_INGRESO")
 	private Date fechaIngreso;
-    
-	@JoinColumn(referencedColumnName="ID")
-	@OneToOne(fetch=FetchType.LAZY)
-	private Grado grado;
 	
-	@Column(name="SEMAFORO_ID")
-	private long idSemaforo;
+	@Column(name="MATRICULA")
+	private String matricula;
 	
-	@Column(name="BECA_ID")
-	private long beca;
+	@Column(name="FECHA_NACIMIENTO")
+	private Date fechaNacimiento;
 	
-	@Column(name="SALDO")
-	private double saldo;
+	@Column(name="ESCUELA_PROCEDENCIA")
+	private String escuelaProcedencia;
 	
-	@Column(name="ACTIVO")
-    private int activo;
-    
-	/*@OneToOne
-    private Semaforo semaforo;*/
+	@Column(name="ALUMNO_DIRECCION")
+	private String alumnoDireccion;
+	
+	@Column(name="ALUMNO_TELEFONO")
+	private String alumnoTelefono;
+	
+	@Column(name="TUTOR_NOMBRE")
+	private String tutorNombre;
+	
+	@Column(name="TUTOR_TELEFONO")
+	private String tutorTelefono;
 
-	public int getId() {
-		return id;
+	public int getAlumnoId() {
+		return alumnoId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAlumnoId(int alumnoId) {
+		this.alumnoId = alumnoId;
 	}
 
 	public String getApPaterno() {
@@ -77,12 +76,12 @@ public class Alumno {
 		this.apMaterno = apMaterno;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getAlumnoNombre() {
+		return alumnoNombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setAlumnoNombre(String alumnoNombre) {
+		this.alumnoNombre = alumnoNombre;
 	}
 
 	public Date getFechaIngreso() {
@@ -93,54 +92,60 @@ public class Alumno {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	/*public long getIdGrado() {
-		return idGrado;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public void setIdGrado(long idGrado) {
-		this.idGrado = idGrado;
-	}*/
-
-	public Grado getGrado() {
-		return grado;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
-	public void setGrado(Grado grado) {
-		this.grado = grado;
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public long getIdSemaforo() {
-		return idSemaforo;
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public void setIdSemaforo(long idSemaforo) {
-		this.idSemaforo = idSemaforo;
+	public String getEscuelaProcedencia() {
+		return escuelaProcedencia;
 	}
 
-	public long getBeca() {
-		return beca;
+	public void setEscuelaProcedencia(String escuelaProcedencia) {
+		this.escuelaProcedencia = escuelaProcedencia;
 	}
 
-	public void setBeca(long beca) {
-		this.beca = beca;
+	public String getAlumnoDireccion() {
+		return alumnoDireccion;
 	}
 
-	public double getSaldo() {
-		return saldo;
+	public void setAlumnoDireccion(String alumnoDireccion) {
+		this.alumnoDireccion = alumnoDireccion;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+	public String getAlumnoTelefono() {
+		return alumnoTelefono;
 	}
 
-	public int getActivo() {
-		return activo;
+	public void setAlumnoTelefono(String alumnoTelefono) {
+		this.alumnoTelefono = alumnoTelefono;
 	}
 
-	public void setActivo(int activo) {
-		this.activo = activo;
+	public String getTutorNombre() {
+		return tutorNombre;
 	}
 
-	
+	public void setTutorNombre(String tutorNombre) {
+		this.tutorNombre = tutorNombre;
+	}
+
+	public String getTutorTelefono() {
+		return tutorTelefono;
+	}
+
+	public void setTutorTelefono(String tutorTelefono) {
+		this.tutorTelefono = tutorTelefono;
+	}	
 	
 }

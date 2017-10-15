@@ -35,7 +35,7 @@ import com.marti.educacion.saem.services.PagoGradoService;
 import com.marti.educacion.saem.util.Constantes;
 import com.marti.educacion.saem.util.MyUtil;
 
-@Controller
+//@Controller
 public class GradoController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(GradoController.class);
@@ -56,14 +56,14 @@ public class GradoController {
 		this.alumnoPagoService = alumnoPagoService;
 	}
 	
-	@RequestMapping(value="/grados", method = RequestMethod.GET)
+	////@RequestMapping(value="/grados", method = RequestMethod.GET)
 	public String grados(Model model) {
 		logger.debug("GradoController - GET");
 		
 		return "grado";
 	}
 	
-	@RequestMapping(value="/grado", method = RequestMethod.POST)
+	//@RequestMapping(value="/grado", method = RequestMethod.POST)
 	public String grados(@ModelAttribute("gradoForm") @Valid GradoForm gradoForm,
 			BindingResult result, RedirectAttributes redirectAttributes){
 		logger.debug("GradoController - POST");
@@ -71,7 +71,7 @@ public class GradoController {
 			return "grado";
 		
 		try {
-			gradoService.save(gradoForm);
+//			gradoService.save(gradoForm);
 			MyUtil.flash(redirectAttributes, "success", "gradoSuccess");
 		} catch (Exception e) {
 			MyUtil.flash(redirectAttributes, "danger", "gradoNoSuccess", e.getMessage());
@@ -82,27 +82,27 @@ public class GradoController {
 		return "redirect:/grado";
 	}
 	
-	@RequestMapping(value="/grados/{gradoId}/editar", method=RequestMethod.GET)
+	//@RequestMapping(value="/grados/{gradoId}/editar", method=RequestMethod.GET)
 	public String editar(@PathVariable("gradoId") Integer gradoId, Model model){
 		logger.debug("Editar grado: " + gradoId );
 		
-		GradoForm gradoForm = gradoService.findById(gradoId);
+//		GradoForm gradoForm = gradoService.findById(gradoId);
 		Map<String,String> map2 = new HashMap<String,String>();
 		List<CatPagos> catPagos;
 		
-		catPagos= catPagosService.findAll();
-		
+//		catPagos= catPagosService.findAll();
+		/*
 		for(CatPagos cat: catPagos){
 			map2.put(""+cat.getId(), cat.getConcepto() + " - $" + cat.getMonto());
 		}
-		
+		*/
 		model.addAttribute("conceptos", map2);
-		model.addAttribute(gradoForm);
+//		model.addAttribute(gradoForm);
 		model.addAttribute(new GradoPagoForm());	
 		return "gradoEdit";
 	}
 	
-	@RequestMapping(value="/grados/{gradoId}/editar", method=RequestMethod.POST)
+	//@RequestMapping(value="/grados/{gradoId}/editar", method=RequestMethod.POST)
 	public String editarPost(@PathVariable("gradoId") Integer gradoId, 
 			@ModelAttribute("gradoForm") @Valid GradoForm gradoForm,
 			BindingResult result, RedirectAttributes redirectAttributes, Model model){
@@ -114,7 +114,7 @@ public class GradoController {
 	
 		logger.debug("Update gradoForm: " + gradoForm.toString());
 		try {
-			gradoService.update(gradoForm);
+//			gradoService.update(gradoForm);
 			MyUtil.flash(redirectAttributes, "success", "gradoUpdateSuccess");
 		} catch (Exception e) {
 			//TODO Cambiar el label
@@ -135,7 +135,7 @@ public class GradoController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/grados/{gradoId}/editar/pago", method=RequestMethod.POST)
+	//@RequestMapping(value="/grados/{gradoId}/editar/pago", method=RequestMethod.POST)
 	public String editarPagoPost(@PathVariable("gradoId") Integer gradoId, 
 			@ModelAttribute("gradoPagoForm") @Valid GradoPagoForm gradoPagoForm,
 			BindingResult result, RedirectAttributes redirectAttributes, Model model){
@@ -161,7 +161,7 @@ public class GradoController {
 			
 			//Buscar los alumnos que pertenecen al grado y se encuentran activos
 			//List<Alumno> alumnoLst = alumnoService.findByGrado(gradoId);
-			List<Alumno> alumnoLst = alumnoService.findByGradoAndActivo(gradoId);
+			List<Alumno> alumnoLst = null;//alumnoService.findByGradoAndActivo(gradoId);
 			
 			//Crear una lista de los meses a crear
 			fechaInicial.setTime(sdf.parse(gradoPagoForm.getFechaInicio()));
@@ -200,12 +200,12 @@ public class GradoController {
 				
 				try {
 					//Se agrega el pago a la relación de pagos por grado
-					PagoGrado pagoGrado = pagoGradoService.addNew(pagoGradoRelForm);
-					pagoGradoService.flush();
+//					PagoGrado pagoGrado = pagoGradoService.addNew(pagoGradoRelForm);
+//					pagoGradoService.flush();
 					
 					//Se obtiene el monto de pago del concepto
-					CatPagos catPago = catPagosService.findById(pagoGradoRelForm.getIdPago());
-					
+//					CatPagos catPago = catPagosService.findById(pagoGradoRelForm.getIdPago());
+					/*
 					//SI el pago es tipo 'UNICO', no se agrega a los alumnos
 					if(catPago.getPagoUnico()==Constantes.ESTATUS_INACTIVO){						
 						//Se realiza un ciclo para agregar el pago a cada alumno
@@ -222,7 +222,7 @@ public class GradoController {
 							alumnoPagoService.save(alumnoForm);
 						}						
 					}
-					
+					*/
 					
 					
 				} catch (Throwable e) {

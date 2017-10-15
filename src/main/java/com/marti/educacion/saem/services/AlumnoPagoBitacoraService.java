@@ -7,6 +7,6 @@ import com.marti.educacion.saem.entities.AlumnoReportDailyVO;
 
 public interface AlumnoPagoBitacoraService {
 
-	List<AlumnoReportDailyVO> getPagosBetweenFechaPago(Date fechaInicio, Date fechaFin);
+	//List<AlumnoReportDailyVO> getPagosBetweenFechaPago(Date fechaInicio, Date fechaFin);
 	
 }

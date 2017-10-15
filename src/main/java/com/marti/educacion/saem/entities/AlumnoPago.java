@@ -14,10 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="ALUMNO_PAGO")
+/*@Entity
+@Table(name="ALUMNO_PAGO")*/
 public class AlumnoPago {
-
+/*
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -66,14 +66,6 @@ public class AlumnoPago {
 		this.idAlumno = idAlumno;
 	}
 
-	/*public Integer getIdPagoGrado() {
-		return idPagoGrado;
-	}
-
-	public void setIdPagoGrado(Integer idPagoGrado) {
-		this.idPagoGrado = idPagoGrado;
-	}*/
-
 	public PagoGrado getPagoGrado() {
 		return pagoGrado;
 	}
@@ -120,5 +112,5 @@ public class AlumnoPago {
 
 	public void setFechaLimite(Date fechaLimite) {
 		this.fechaLimite = fechaLimite;
-	}
+	}*/
 }

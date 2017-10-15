@@ -11,39 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 import com.marti.educacion.saem.entities.AlumnoPago;
 import com.marti.educacion.saem.entities.PagoGrado;
 
-public interface AlumnoPagoRepository extends JpaRepository<AlumnoPago, Integer>{
+public interface AlumnoPagoRepository{/* extends JpaRepository<AlumnoPago, Integer>{
 
 	List<AlumnoPago> findByIdAlumno(Integer idAlumno);
 	
-	/*
-	select pg.id, ap.monto, ap.pago
-	from sae.pago_grado pg
-	join sae.alumno_pago ap on pg.id = ap.id_pago_grado
-	where pg.mes_corresponde = 12 and pg.anio_corresponde = 2016;
-	*/
 	@Query("Select ap from AlumnoPago ap where ap.pagoGrado.mes_corresponde = ?1 and ap.pagoGrado.anio_corresponde = ?2")
 	List<AlumnoPago> currentMonthPays(Integer mes, Integer anio);
 	
-	/*
-	select pg.id, ap.monto, ap.pago
-	from sae.pago_grado pg
-	join sae.alumno_pago ap on pg.id = ap.id_pago_grado
-	where pg.fecha_corresponde between 01-12-2016 and 31-01-2017;
-	*/
 	@Query("Select ap from AlumnoPago ap "
 			+ "where ap.pagoGrado.fechaCorresponde between ?1 and ?2")
 	List<AlumnoPago> betweenMonthPays(Date fechaInicio, Date fechaFin);
 	
-	/*
-	Busca los pagos que han pasado su fecha limite y no son pagos únicos y generan adeudo
-	select ap.*
-	from alumno_pago ap
-    join pago_grado pg on ap.id_pago_grado = pg.id
-    join cat_pagos cp on pg.id_pago = cp.id
-	where cp.genera_adeudo = 1
-    and ap.id_semaforo = 3
-	and ap.fecha_limite < sysdate()
-	*/
 	@Query("Select ap from AlumnoPago ap "
 			+ "join ap.pagoGrado pg "
 			+ "join pg.catPago cp "
@@ -72,6 +50,6 @@ public interface AlumnoPagoRepository extends JpaRepository<AlumnoPago, Integer>
 	@Transactional
 	@Query("delete from AlumnoPago ap where ap.idPagoGrado = ?1")
 	void deleteInBulkByPagoGradoId(Integer idPagoGrado);
-	
+	*/
 	
 }

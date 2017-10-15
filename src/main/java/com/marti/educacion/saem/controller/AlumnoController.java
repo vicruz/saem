@@ -2,9 +2,6 @@ package com.marti.educacion.saem.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -34,7 +31,7 @@ import com.marti.educacion.saem.services.CatPagosService;
 import com.marti.educacion.saem.services.PagoGradoService;
 import com.marti.educacion.saem.util.MyUtil;
 
-@Controller
+//@Controller
 public class AlumnoController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AlumnoController.class);
@@ -45,7 +42,7 @@ public class AlumnoController {
 	private AlumnoBecaService alumnoBecaService;
 	private AlumnoDescuentoService alumnoDescuentoService;
 
-	@Autowired
+//	@Autowired
 	public AlumnoController(AlumnoService alumnoService,PagoGradoService pagoGradoService,
 			AlumnoPagoService alumnoPagoService, CatPagosService catPagosService,
 			AlumnoBecaService alumnoBecaService, AlumnoDescuentoService alumnoDescuentoService) {
@@ -57,7 +54,7 @@ public class AlumnoController {
 	}
 	
 	
-	@RequestMapping(value="/alumnos", method = RequestMethod.GET)
+	//@RequestMapping(value="/alumnos", method = RequestMethod.GET)
 	public String alumnos(Model model) {
 		System.out.println("Alumno controller-GET");
 		//model.addAttribute("name","vic");
@@ -66,7 +63,7 @@ public class AlumnoController {
 		return "alumnos";
 	}
 	
-	@RequestMapping(value="/alumnos", method = RequestMethod.POST)
+	//@RequestMapping(value="/alumnos", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("alumnoForm") @Valid AlumnoForm alumnoForm,
 			BindingResult result, RedirectAttributes redirectAttributes){
 		System.out.println("Alumno controller");
@@ -76,7 +73,7 @@ public class AlumnoController {
 		logger.info(alumnoForm.toString());
 		
 		try {
-			alumnoService.save(alumnoForm);
+//			alumnoService.save(alumnoForm);
 			MyUtil.flash(redirectAttributes, "success", "alumnoSaveSuccess");
 		} catch (Exception e) {
 			//TODO Cambiar el label
@@ -88,11 +85,11 @@ public class AlumnoController {
 		return "redirect:/alumnos";
 	}
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/pagos", method=RequestMethod.GET)
+	//@RequestMapping(value="/alumnos/{alumnoId}/pagos", method=RequestMethod.GET)
 	public String pagos(@PathVariable("alumnoId") Integer alumnoId, Model model){
 		logger.info("Buscando alumno con id " + alumnoId );
 		
-		List<PagoGrado> pagoGradosForm;
+/*		List<PagoGrado> pagoGradosForm;
 		Map<String,String> map = new HashMap<String,String>();
 		Alumno alumno = alumnoService.findById(alumnoId);
 
@@ -116,12 +113,12 @@ public class AlumnoController {
 		}
 		
 		model.addAttribute("conceptos", map);
-		//model.addAttribute("lstPagoGradoService", pagoGradosForm);
+	*/	//model.addAttribute("lstPagoGradoService", pagoGradosForm);
 		
 		return "alumnoPago";
 	}
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/pagos", method=RequestMethod.POST)
+	//@RequestMapping(value="/alumnos/{alumnoId}/pagos", method=RequestMethod.POST)
 	public String pagosPost(@PathVariable("alumnoId") Integer alumnoId, 
 			@ModelAttribute("alumnoPagoForm") @Valid AlumnoPagoForm alumnoPagoForm,
 			BindingResult result, RedirectAttributes redirectAttributes, Model model){
@@ -134,7 +131,7 @@ public class AlumnoController {
 	
 		logger.info("alumnoPagoForm: " + alumnoPagoForm.toString());
 		try {
-			alumnoPagoService.save(alumnoPagoForm);
+//			alumnoPagoService.save(alumnoPagoForm);
 			MyUtil.flash(redirectAttributes, "success", "pagoSuccess");
 		} catch (Exception e) {
 			//TODO Cambiar el label
@@ -148,13 +145,13 @@ public class AlumnoController {
 		//return "alumnoPago";
 	}
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/editar", method=RequestMethod.GET)
+	//@RequestMapping(value="/alumnos/{alumnoId}/editar", method=RequestMethod.GET)
 	public String editar(@PathVariable("alumnoId") Integer alumnoId, Model model){
 		logger.info("Editar alumno: " + alumnoId );
 		
 		AlumnoForm alumnoForm = new AlumnoForm();
-		Alumno alumno = alumnoService.findById(alumnoId);
-		
+		//Alumno alumno = alumnoService.findById(alumnoId);
+/*		
 		alumnoForm.setId(alumno.getId());
 		alumnoForm.setApMaterno(alumno.getApMaterno());
 		alumnoForm.setApPaterno(alumno.getApPaterno());
@@ -165,11 +162,11 @@ public class AlumnoController {
 		model.addAttribute(alumnoForm);
 		model.addAttribute(new BecaForm());
 		model.addAttribute(new DescuentoForm());
-				
+		*/		
 		return "alumnoEdit";
 	}
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/editar", method=RequestMethod.POST)
+	//@RequestMapping(value="/alumnos/{alumnoId}/editar", method=RequestMethod.POST)
 	public String editarPost(@PathVariable("alumnoId") Integer alumnoId, 
 			@ModelAttribute("alumnoPagoForm") @Valid AlumnoForm alumnoForm,
 			//@ModelAttribute("becaForm") @Valid BecaForm becaForm,
@@ -182,7 +179,7 @@ public class AlumnoController {
 	
 		logger.info("Update alumnoForm: " + alumnoForm.toString());
 		try {
-			alumnoService.update(alumnoForm);
+//			alumnoService.update(alumnoForm);
 			MyUtil.flash(redirectAttributes, "success", "alumnoUpdateSuccess");
 		} catch (Exception e) {
 			//TODO Cambiar el label
@@ -194,7 +191,7 @@ public class AlumnoController {
 		return "redirect:/alumnos";
 	}
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/editar/beca", method=RequestMethod.POST)
+	//@RequestMapping(value="/alumnos/{alumnoId}/editar/beca", method=RequestMethod.POST)
 	public String editarPostBeca(@PathVariable("alumnoId") Integer alumnoId, 
 			@ModelAttribute("becaForm") @Valid BecaForm becaForm,
 			BindingResult result, RedirectAttributes redirectAttributes, Model model){
@@ -206,7 +203,7 @@ public class AlumnoController {
 			if(becaForm.getPorcentaje()>100){
 				MyUtil.flash(redirectAttributes, "danger", "alumnoSaveBecaPorcentajeError");
 			}else{
-				alumnoBecaService.save(becaForm, alumnoId);
+//				alumnoBecaService.save(becaForm, alumnoId);
 				MyUtil.flash(redirectAttributes, "success", "alumnoSaveBecaSuccess");				
 			}
 		} catch (Exception e) {
@@ -219,7 +216,7 @@ public class AlumnoController {
 	}
 	
 	
-	@RequestMapping(value="/alumnos/{alumnoId}/editar/descuento", method=RequestMethod.POST)
+	//@RequestMapping(value="/alumnos/{alumnoId}/editar/descuento", method=RequestMethod.POST)
 	public String editarPostDescuento(@PathVariable("alumnoId") Integer alumnoId, 
 			@ModelAttribute("descuentoForm") @Valid DescuentoForm descuentoForm,
 			BindingResult result, RedirectAttributes redirectAttributes, Model model){
@@ -233,12 +230,12 @@ public class AlumnoController {
 		try {
 			
 			formatter = new SimpleDateFormat("dd-MM-yyyy");
-			becaForm = alumnoBecaService.findByAlumnoAndDate(alumnoId, formatter.parse(descuentoForm.getFechaInicio()));
+//			becaForm = alumnoBecaService.findByAlumnoAndDate(alumnoId, formatter.parse(descuentoForm.getFechaInicio()));
 			
 			if(becaForm!=null){
 				MyUtil.flash(redirectAttributes, "danger", "alumnoSaveDescuentoBecaError");
 			}else{
-				alumnoDescuentoService.save(descuentoForm, alumnoId);
+//				alumnoDescuentoService.save(descuentoForm, alumnoId);
 				MyUtil.flash(redirectAttributes, "success", "alumnoSaveDescuentoSuccess");				
 			}
 			

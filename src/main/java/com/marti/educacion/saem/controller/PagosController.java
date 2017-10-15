@@ -20,26 +20,26 @@ import com.marti.educacion.saem.util.MyUtil;
 
 import javax.validation.Valid;
 
-@Controller
+//@Controller
 public class PagosController {
 
 	private static final Logger logger = LoggerFactory.getLogger(PagosController.class);
 
 	private CatPagosService catPagosService;
 
-	@Autowired
+//	@Autowired
 	public PagosController(CatPagosService catPagosService) {
 		this.catPagosService = catPagosService;
 	}
 
-	@RequestMapping(value = "/getPagos", method = RequestMethod.GET)
+	////@RequestMapping(value = "/getPagos", method = RequestMethod.GET)
 	public String administrador(Model model) {
 
 		model.addAttribute(new CatPagosForm());
 		return "catalogoPagos";
 	}
 
-	@RequestMapping(value = "/getPagos", method = RequestMethod.POST)
+	//@RequestMapping(value = "/getPagos", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("signupForm") @Valid CatPagosForm catPagosForm, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 		System.out.println("User controller" + catPagosForm.getConcepto());
@@ -49,7 +49,7 @@ public class PagosController {
 		logger.info(catPagosForm.toString());
 
 		try {
-			catPagosService.addNuevoPago(catPagosForm);
+//			catPagosService.addNuevoPago(catPagosForm);
 			MyUtil.flash(redirectAttributes, "success", "signupSuccess");
 		} catch (Exception e) {
 
@@ -68,19 +68,19 @@ public class PagosController {
 	 * @param redirectAttributes
 	 * @return
 	 */
-	@RequestMapping(value = "/borrar/{pagoId}", method = RequestMethod.GET)
+	//@RequestMapping(value = "/borrar/{pagoId}", method = RequestMethod.GET)
 	public String borrarUsuario(@PathVariable("pagoId") Integer pagoId, Model model,
 			RedirectAttributes redirectAttributes) {
 		System.out.println("dele controller");
 		try {
 
-			CatPagos catPagoBusqueda = catPagosService.findById(pagoId);
-
+//			CatPagos catPagoBusqueda = catPagosService.findById(pagoId);
+/*
 			if (catPagoBusqueda != null) {
 				catPagosService.deleteCatPago(pagoId);
 				MyUtil.flash(redirectAttributes, "success", "catPagoDeleteSuccess", catPagoBusqueda.getConcepto());
 			}
-
+*/
 		} catch (Exception e) {
 			MyUtil.flash(redirectAttributes, "danger", "catPagoDeleteNoSuccess", e.getMessage());
 			logger.error(e.getMessage());

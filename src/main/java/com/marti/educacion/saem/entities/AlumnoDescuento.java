@@ -11,10 +11,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name="ALUMNO_DESCUENTO")
+/*@Entity
+@Table(name="ALUMNO_DESCUENTO")*/
 public class AlumnoDescuento {
-	
+/*	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_DESCUENTO")
@@ -84,5 +84,5 @@ public class AlumnoDescuento {
 	public void setActivo(int activo) {
 		this.activo = activo;
 	}
-    
+    */
 }

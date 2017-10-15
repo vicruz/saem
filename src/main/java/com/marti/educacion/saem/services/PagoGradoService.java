@@ -6,7 +6,7 @@ import com.marti.educacion.saem.dto.PagoGradoRelForm;
 import com.marti.educacion.saem.entities.PagoGrado;
 
 public interface PagoGradoService {
-	
+	/*
 	public PagoGrado findOne(Integer idPagoGrado);
 
 	public List<PagoGrado> getByIdGrado(Integer idGrado);
@@ -24,4 +24,5 @@ public interface PagoGradoService {
 	public int findPagoMade(int idPagoGrado);
 	
 	public void delete(Integer idPagoGrado);
+	*/
 }

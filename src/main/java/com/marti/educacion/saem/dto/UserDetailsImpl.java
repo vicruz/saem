@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.marti.educacion.saem.entities.User;
+import com.marti.educacion.saem.entities.Usuario;
 
 public class UserDetailsImpl implements UserDetails{
 
@@ -15,9 +15,9 @@ public class UserDetailsImpl implements UserDetails{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private User user;
+	private Usuario user;
 	
-	public UserDetailsImpl(User user) {
+	public UserDetailsImpl(Usuario user) {
 		this.user = user;
 	}
 	
@@ -58,11 +58,11 @@ public class UserDetailsImpl implements UserDetails{
 		return true;
 	}
 
-	public User getUser() {
+	public Usuario getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Usuario user) {
 		this.user = user;
 	}
 

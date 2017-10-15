@@ -11,10 +11,10 @@ import com.marti.educacion.saem.dto.CatPagosForm;
 import com.marti.educacion.saem.entities.CatPagos;
 import com.marti.educacion.saem.repositories.CatPagosRepository;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class CatPagosServiceImpl implements CatPagosService {
-
+/*
 	private CatPagosRepository catPagosRepository;
 	//private PagoGradoRepository pagoGradoRepository;
 	
@@ -26,17 +26,20 @@ public class CatPagosServiceImpl implements CatPagosService {
 	
 	@Override
 	public CatPagos findById(Integer id) {
-		return catPagosRepository.findOne(id);
+		//return catPagosRepository.findOne(id);
+		return null;
 	}
 
 	@Override
 	public CatPagos findByPagoGradoId(Integer id) {
-		CatPagos catPagos = catPagosRepository.findById(id);
-		return catPagos;
+		//CatPagos catPagos = catPagosRepository.findById(id);
+		//return catPagos;
+		return null;
 	}
 
 	public List<CatPagos> findAll(){
-		return catPagosRepository.findAll();
+		//return catPagosRepository.findAll();
+		return null;
 	}
 
 	@Override
@@ -54,13 +57,15 @@ public class CatPagosServiceImpl implements CatPagosService {
 		pagos.setPagoUnico(catPagosForm.getPagoUnico()?1:0);
 		
 		catPagosRepository.save(pagos);
+
 	}
 
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public int deleteCatPago(int pagoId) {
 		// TODO Auto-generated method stub
-		return catPagosRepository.deleteById(pagoId);
+		//return catPagosRepository.deleteById(pagoId);
+		return 0;
 	}
-
+*/
 
 }

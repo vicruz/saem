@@ -21,10 +21,10 @@ import com.marti.educacion.saem.repositories.AlumnoPagoRepository;
 import com.marti.educacion.saem.repositories.AlumnoRepository;
 import com.marti.educacion.saem.util.Constantes;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class AlumnoDescuentoServiceImpl implements AlumnoDescuentoService{
-
+/*
 	private AlumnoDescuentoRepository alumnoDescuentoRepository;
 	private AlumnoPagoRepository alumnoPagoRepository;
 	private AlumnoBecaRepository alumnoBecaRepository;
@@ -110,7 +110,7 @@ public class AlumnoDescuentoServiceImpl implements AlumnoDescuentoService{
 	/**
 	 * Elimina el descuento solicitado y restaura los precios de los pagos
 	 */
-	@Override
+/*	@Override
 	public void deleteDescuentoById(Integer idDescuento) {
 		
 		//Buscar el descuento
@@ -151,5 +151,5 @@ public class AlumnoDescuentoServiceImpl implements AlumnoDescuentoService{
 		
 		alumnoDescuentoRepository.delete(idDescuento);
 	}
-
+*/
 }

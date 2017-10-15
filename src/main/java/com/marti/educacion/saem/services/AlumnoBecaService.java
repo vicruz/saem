@@ -7,7 +7,7 @@ import com.marti.educacion.saem.dto.BecaForm;
 
 public interface AlumnoBecaService {
 	
-	public void save(BecaForm becaform, Integer idAlumno);
+/*	public void save(BecaForm becaform, Integer idAlumno);
 	
 	public BecaForm findOne(Integer idBeca);
 	
@@ -18,5 +18,5 @@ public interface AlumnoBecaService {
 	public BecaForm findByAlumnoAndDate(Integer idAlumno, Date fechaInicio);
 	
 	public void deleteBeca(Integer idBeca);
-
+*/
 }

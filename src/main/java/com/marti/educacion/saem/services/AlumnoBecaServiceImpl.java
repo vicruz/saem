@@ -22,11 +22,11 @@ import com.marti.educacion.saem.repositories.AlumnoPagoRepository;
 import com.marti.educacion.saem.repositories.AlumnoRepository;
 import com.marti.educacion.saem.util.Constantes;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class AlumnoBecaServiceImpl implements AlumnoBecaService{
 	
-	private static Logger logger = Logger.getLogger(AlumnoBecaServiceImpl.class);
+	/*private static Logger logger = Logger.getLogger(AlumnoBecaServiceImpl.class);
 	
 	private AlumnoBecaRepository alumnoBecaRepository;
 	private AlumnoRepository alumnoRepository;
@@ -46,7 +46,7 @@ public class AlumnoBecaServiceImpl implements AlumnoBecaService{
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 		double diferencia = 0.0;
 		double montoPorcentaje;
-		
+	
 		try {
 			alumnoBeca.setFechaFin(formatter.parse(becaForm.getFechaFin()));
 			alumnoBeca.setFechaInicio(formatter.parse(becaForm.getFechaInicio()));
@@ -201,6 +201,7 @@ public class AlumnoBecaServiceImpl implements AlumnoBecaService{
 		
 		logger.debug("Borrar beca");
 		alumnoBecaRepository.delete(idBeca);
-	}
+		
+	}*/
 
 }

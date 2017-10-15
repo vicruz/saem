@@ -1,7 +1,7 @@
 package com.marti.educacion.saem.entities;
 
 public class AlumnoReportDailyVO {
-	
+	/*
 	private String nombre;
 	private String concepto;
 	private String grado;
@@ -38,5 +38,5 @@ public class AlumnoReportDailyVO {
 	public void setSaldo(boolean saldo) {
 		this.saldo = saldo;
 	}
-	
+	*/
 }

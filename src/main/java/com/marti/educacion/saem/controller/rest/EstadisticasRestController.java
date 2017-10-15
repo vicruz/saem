@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.marti.educacion.saem.json.EstadisticaJson;
 import com.marti.educacion.saem.services.EstadisticaService;
 
-@RestController
-@RequestMapping(path="/estadisticas")
+//@RestController
+//@RequestMapping(path="/estadisticas")
 public class EstadisticasRestController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EstadisticasRestController.class);
 
 	private EstadisticaService estadisticaService;
 	
-	@Autowired
+//	@Autowired
 	public EstadisticasRestController(EstadisticaService estadisticaService){
 		this.estadisticaService = estadisticaService;
 	}
 	
-	@RequestMapping(value="/now/chart/{total}",method = RequestMethod.GET)
+	//@RequestMapping(value="/now/chart/{total}",method = RequestMethod.GET)
 	public EstadisticaJson currentMonth(@PathVariable("total") String total){
 		Calendar cal = Calendar.getInstance();
 		logger.info("Estadisticas del mes: " + (cal.get(Calendar.MONTH)+1));
@@ -42,15 +42,16 @@ public class EstadisticasRestController {
 		join sae.alumno_pago ap on pg.id = ap.id_pago_grado
 		where pg.mes_corresponde = 12 and pg.anio_corresponde = 2016;
 		*/
-		if(total.equals("true")){
+		/*if(total.equals("true")){
 			return estadisticaService.currentMonthPays(true);
 		}else{
 			return estadisticaService.currentMonthPays(false);
-		}
+		}*/
+		return null;
 		
 	}
 	
-	@RequestMapping(value="/between/chart/{total}",method = RequestMethod.POST)
+	//@RequestMapping(value="/between/chart/{total}",method = RequestMethod.POST)
 	public EstadisticaJson betweenMonth(@PathVariable("total") String total, String inicio, String fin) 
 			throws ParseException{
 		
@@ -69,12 +70,12 @@ public class EstadisticasRestController {
 		dateIni = formatter.parse(inicio);
 		dateFin = formatter.parse(fin);
 		
-		if(total.equals("true")){
-			return estadisticaService.betweentMonthPays(dateIni, dateFin, true);
-		}else{
-			return estadisticaService.betweentMonthPays(dateIni, dateFin, false);
-		}
-		
+//		if(total.equals("true")){
+//			return estadisticaService.betweentMonthPays(dateIni, dateFin, true);
+//		}else{
+//			return estadisticaService.betweentMonthPays(dateIni, dateFin, false);
+//		}
+		return null;
 	}
 	
 	public void gradeCurrentMonth(){

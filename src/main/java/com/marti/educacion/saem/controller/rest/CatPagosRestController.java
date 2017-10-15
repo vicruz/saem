@@ -18,36 +18,37 @@ import com.marti.educacion.saem.services.CatPagosService;
 import com.marti.educacion.saem.services.PagoGradoService;
 import com.marti.educacion.saem.util.MyUtil;
 
-@RestController
-@RequestMapping(path="/catpagos")
+//@RestController
+//@RequestMapping(path="/catpagos")
 public class CatPagosRestController {
 	
 	private CatPagosService catPagosService;
 	private PagoGradoService pagoGradoService;
 
-	@Autowired
+//	@Autowired
 	public CatPagosRestController(PagoGradoService pagoGradoService, CatPagosService catPagosService){//, ){
 		this.catPagosService = catPagosService;
 		this.pagoGradoService = pagoGradoService;
 	}
 	
-	@RequestMapping(path="/getMonto/{idPagoGrado}", method = RequestMethod.GET)
+	//@RequestMapping(path="/getMonto/{idPagoGrado}", method = RequestMethod.GET)
 	public String getMonto(@PathVariable("idPagoGrado") Integer idPagoGrado){
 		//el valor que llega es idPagoGrado
-		PagoGrado pagoGrado = pagoGradoService.findOne(idPagoGrado);
+//		PagoGrado pagoGrado = pagoGradoService.findOne(idPagoGrado);
 		//CatPagos catPago = catPagosService.findById(idPagoGrado);
 		
-		if(pagoGrado==null){
-			return "0";
+		return "0";
+/*		if(pagoGrado==null){
 		}
 		else{
-			return pagoGrado.getCatPago().getMonto().toString();
-		}
+			//return pagoGrado.getCatPago().getMonto().toString();
+			return 
+		}*/
 	}
 
 	
 	
-	@RequestMapping(value="/addConcepto",method = RequestMethod.POST)
+	//@RequestMapping(value="/addConcepto",method = RequestMethod.POST)
 	public JSon adminRest(){
 		System.out.println("adminREST");
 		JSon value = new JSon();
@@ -57,9 +58,9 @@ public class CatPagosRestController {
 		
 		List<CatPagosJson> lstJson = new ArrayList<CatPagosJson>();
 		
-		List<CatPagos> lstPagos = catPagosService.findAll();
+//		List<CatPagos> lstPagos = catPagosService.findAll();
 		
-		if(lstPagos!=null){
+		/*if(lstPagos!=null){
 			for(CatPagos pagos : lstPagos){
 				CatPagosJson json = new CatPagosJson();
 				json.setConcepto(pagos.getConcepto());
@@ -72,13 +73,13 @@ public class CatPagosRestController {
 				json.setUrl("/borrar/"+pagos.getId());
 				lstJson.add(json);
 			}
-		}
+		}*/
 		
 		value.setData(lstJson);
 		return value;
 	}
 	
-	@RequestMapping(path="/getAnio", method = RequestMethod.GET)
+	//@RequestMapping(path="/getAnio", method = RequestMethod.GET)
 	public String getAnio(){
 		Calendar fecha = Calendar.getInstance();
         int anio = fecha.get(Calendar.YEAR);
@@ -86,7 +87,7 @@ public class CatPagosRestController {
 		return String.valueOf(anio);
 	}
 	
-	@RequestMapping(path="/add", method = RequestMethod.POST)
+	//@RequestMapping(path="/add", method = RequestMethod.POST)
 	public String addPay(){
 		//Agrega pagos
 /*
@@ -99,7 +100,7 @@ public class CatPagosRestController {
 		return "";
 	}
 	
-	@RequestMapping(path="/modify", method = RequestMethod.POST)
+	//@RequestMapping(path="/modify", method = RequestMethod.POST)
 	public String modifyPay(){
 		//Agrega pagos
 /*

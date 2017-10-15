@@ -11,10 +11,10 @@ import com.marti.educacion.saem.dto.GradoForm;
 import com.marti.educacion.saem.entities.Grado;
 import com.marti.educacion.saem.repositories.GradoRepository;
 
-@Service
-@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
+//@Service
+//@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class GradoServiceImpl implements GradoService{
-
+/*
 	private GradoRepository gradoRepository;
 	
 	@Autowired
@@ -25,21 +25,20 @@ public class GradoServiceImpl implements GradoService{
 
 	@Override
 	public List<Grado> findAll() {
-		
-		return gradoRepository.findAll();
+		//return gradoRepository.findAll();
+		return null;
 	}
 
 	@Override
 	public Grado findByName(String name) {
-		
-		return gradoRepository.findByName(name);
+		//return gradoRepository.findByName(name);
+		return null;
 	}
 	
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public GradoForm save(GradoForm gradoForm) throws Exception {
 		Grado grado = new Grado();
-		
 		//grado.setId(gradoForm.getGradoId());
 		grado.setName(gradoForm.getNombre());
 		
@@ -60,7 +59,6 @@ public class GradoServiceImpl implements GradoService{
 			form.setGradoId(gradoId);
 			form.setNombre(grado.getName());
 		}
-		
 		return form;
 	}
 
@@ -72,8 +70,5 @@ public class GradoServiceImpl implements GradoService{
 		
 		gradoRepository.save(grado);
 	}
-	
-	
-	
-	
+	*/
 }

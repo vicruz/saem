@@ -36,7 +36,7 @@ import com.marti.educacion.saem.services.PagoGradoService;
 import com.marti.educacion.saem.services.UserService;
 import com.marti.educacion.saem.util.MyUtil;
 
-@Controller
+//@Controller
 public class PagoGradoController {
 
 	private PagoGradoService pagoGradoService;
@@ -47,7 +47,7 @@ public class PagoGradoController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PagoGradoController.class);
 
-	@Autowired
+//	@Autowired
 	public PagoGradoController(UserService userService,PagoGradoService pagoGradoService,
 			AlumnoPagoService alumnoPagoService, CatPagosService catPagosService,GradoService gradoService, 
 			AlumnoService alumnoService) {
@@ -58,7 +58,7 @@ public class PagoGradoController {
 		this.alumnoPagoService = alumnoPagoService;
 	}
 
-	@RequestMapping(value="/pagoGrado", method=RequestMethod.GET)
+	////@RequestMapping(value="/pagoGrado", method=RequestMethod.GET)
 	public String pagoGrado(Model model){
 		logger.info("Busca los id pago-catalogo pago");
 
@@ -69,9 +69,9 @@ public class PagoGradoController {
 		Map<Integer,String> mesesMap = new HashMap<Integer,String>();
 
 		model.addAttribute(new PagoGradoRelForm());
-		grado = gradoService.findAll();
-		catPagos= catPagosService.findAll();
-
+//		grado = gradoService.findAll();
+//		catPagos= catPagosService.findAll();
+/*
 		for(Grado gr : grado){
 			String name= gr.getName();
 			map.put(""+gr.getId(), name);
@@ -79,7 +79,7 @@ public class PagoGradoController {
 		for(CatPagos cat: catPagos){
 			String concepto =cat.getConcepto(); 
 			map2.put(""+cat.getId(), concepto);
-		}
+		}*/
 		mesesMap.put(1, "Enero");
 		mesesMap.put(2, "Febrero");
 		mesesMap.put(3, "Marzo");
@@ -111,7 +111,7 @@ public class PagoGradoController {
 		return "pagoGrado";
 	}
 
-	@RequestMapping(value="/pagoGrado", method = RequestMethod.POST)
+	//@RequestMapping(value="/pagoGrado", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("PagoGradoRelForm") @Valid PagoGradoRelForm pagoGradoRelForm,
 			BindingResult result, RedirectAttributes redirectAttributes) throws Throwable {
 		
@@ -144,29 +144,29 @@ public class PagoGradoController {
 			pagoGradoRelForm.setIdGrado(idGrado);
 			try {
 				//Se agrega el pago a la relación de pagos por grado
-				PagoGrado pagoGrado = pagoGradoService.addNew(pagoGradoRelForm);
+//				PagoGrado pagoGrado = pagoGradoService.addNew(pagoGradoRelForm);
 				
 				///////////////////////////////////////////////////////
 				//Se agrega el pago a los alumnos inscritos en el grado
 				
 				//Se obtienen los alumnos en el grado
-				alumnos = alumnoService.findByGrado(pagoGradoRelForm.getIdGrado());
+//				alumnos = alumnoService.findByGrado(pagoGradoRelForm.getIdGrado());
 				
 				//Se obtiene el monto de pago del concepto
-				CatPagos catPago = catPagosService.findById(pagoGradoRelForm.getIdPago());
+//				CatPagos catPago = catPagosService.findById(pagoGradoRelForm.getIdPago());
 				
 				//Se realiza un ciclo para agregar el pago a cada alumno
-				for(Alumno alumno: alumnos){
+				/*for(Alumno alumno: alumnos){
 					AlumnoPagoForm alumnoForm = new AlumnoPagoForm();
 					
-					alumnoForm.setIdPagoGrado(pagoGrado.getId());
-					alumnoForm.setIdAlumno(alumno.getId());
-					alumnoForm.setMonto(catPago.getMonto());
+//					alumnoForm.setIdPagoGrado(pagoGrado.getId());
+//					alumnoForm.setIdAlumno(alumno.getId());
+//					alumnoForm.setMonto(catPago.getMonto());
 					alumnoForm.setFechaPago(null);
 					alumnoForm.setPago(0.0);
 					alumnoForm.setFechaLimite(pagoGradoRelForm.getFechaLimite());
-					alumnoPagoService.save(alumnoForm);
-				}
+//					alumnoPagoService.save(alumnoForm);
+				}*/
 				
 				//MyUtil.flash(redirectAttributes, "success", "pagoGradoSuccess");
 			} 

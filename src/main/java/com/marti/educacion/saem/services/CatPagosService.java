@@ -7,6 +7,7 @@ import com.marti.educacion.saem.entities.CatPagos;
 
 public interface CatPagosService {
 	
+	/*
 	public CatPagos findById(Integer id); 
 	public CatPagos findByPagoGradoId(Integer id);
 	public List<CatPagos> findAll();
@@ -14,7 +15,7 @@ public interface CatPagosService {
 	
 	public int deleteCatPago(int pagoId);
 	
-	
+	*/
 	
 	
 }

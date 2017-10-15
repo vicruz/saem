@@ -8,7 +8,7 @@ import com.marti.educacion.saem.json.JSon;
 
 public interface AlumnoService {
 
-	public List<Alumno> findAll();
+/*	public List<Alumno> findAll();
 	
 	public void save(AlumnoForm alumnoForm) throws Exception;
 	
@@ -29,4 +29,5 @@ public interface AlumnoService {
 	public void changeEstatusByAlumno(int activo, int alumnoId);
 	
 	public List<Alumno> findByGradoAndActivo(Integer idGrado);
+	*/
 }

@@ -17,7 +17,7 @@ import com.marti.educacion.saem.repositories.AlumnoPagoRepository;
 @Service
 @Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 public class EstadisticaServiceImpl implements EstadisticaService {
-	
+	/*
 	private AlumnoPagoRepository alumnoPagoRepository;
 	
 	@Autowired
@@ -166,5 +166,5 @@ public class EstadisticaServiceImpl implements EstadisticaService {
 		}
 		return jsonTotal;
 	}
-
+*/
 }

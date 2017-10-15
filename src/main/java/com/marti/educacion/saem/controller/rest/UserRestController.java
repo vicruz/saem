@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.marti.educacion.saem.entities.User;
+import com.marti.educacion.saem.entities.Usuario;
 import com.marti.educacion.saem.json.JSon;
 import com.marti.educacion.saem.json.UserJson;
-import com.marti.educacion.saem.repositories.UserRepository;
+import com.marti.educacion.saem.repositories.UsuarioRepository;
 
 @RestController
 public class UserRestController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserRestController.class);
 	
-	private UserRepository userRepository;
+	private UsuarioRepository userRepository;
 	
-	public UserRestController(UserRepository userRepository){
+	public UserRestController(UsuarioRepository userRepository){
 		this.userRepository = userRepository;
 	}
 	
@@ -40,15 +40,15 @@ public class UserRestController {
 		List<UserJson> lstJson = new ArrayList<UserJson>();
 		
 		
-		List<User> lstAdmin = userRepository.findAllMinus(userAuth.getName());
+		List<Usuario> lstAdmin = userRepository.findAllMinus(userAuth.getName());
 		
 		if(lstAdmin!=null){
-			for(User administrador : lstAdmin){
+			for(Usuario administrador : lstAdmin){
 				UserJson json = new UserJson();
 				json.setUsuario(administrador.getUsuario());
 				json.setEmail(administrador.getEmail());
-				json.setId(administrador.getId());
-				json.setUrl("/usuario/"+administrador.getId());
+//				json.setId(administrador.getId());
+//				json.setUrl("/usuario/"+administrador.getId());
 				lstJson.add(json);
 			}
 		}
